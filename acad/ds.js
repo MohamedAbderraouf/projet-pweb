@@ -19,6 +19,9 @@ const next=document.querySelector(".next-btn");
 const prev=document.querySelector(".prev-btn");
  
 let currentitem=0;
+let n1=0;
+let n2=0;
+let n3=0;
 window.addEventListener("DOMContentLoaded",function(){
     showperson();
 });
@@ -76,5 +79,12 @@ login.addEventListener("click",function(){
     
    });
    
-
+   const option=document.querySelector(".option");
+   option.addEventListener("click",function(){
+    const myWindow = window.open();
+    
+    document.write("<input type='text' class='option'  placeholder='ajouter une option '></input>");
+   
+    
+   });
 
