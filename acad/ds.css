@@ -68,7 +68,8 @@ section{
     margin-top: 10px;
     margin-bottom: 30px;
 }
-.login-button{
+.login-button,
+.login-button1{
   display: none;
     color: aliceblue;
     background-color:blueviolet;
@@ -82,7 +83,8 @@ section{
     margin-bottom: 35px;
     transition: 0.7 ease;
 }
-.login-button:hover {
+.login-button:hover,
+.login-button1:hover {
     background-color: rgb(59, 4, 110);
     transform: scale(1.1);
 }
@@ -419,7 +421,8 @@ p{
 
 @media(max-width: 991px){
 
-  .login-button{
+  .login-button,
+  .login-button1{
    
       color: aliceblue;
       background-color:blueviolet;
@@ -433,6 +436,7 @@ p{
       margin-bottom: 35px;
       transition: 0.7 ease;
   }
+
 
   .content{
     display: flex;
