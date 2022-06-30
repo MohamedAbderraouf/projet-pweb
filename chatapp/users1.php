@@ -31,11 +31,11 @@
             </div>
             
             <ul class="navigation">
-                <li><a id="a" href="#acueil"> Acueil</a></li>
-                <li><a id="a" href="#Modules"> module</a></li>
-                <li><a id="a" href="#emploi"> Emploi du temp</a></li>
-                <li><a id="a" href="#lien"> Liens de cours</a></li>
-                <li><a id="a" href="sondage"> sondage</a></li>
+                <li><a id="a" href="acueil.php#acueil"> Acueil</a></li>
+                <li><a id="a" href="acueil.php#Modules"> module</a></li>
+                <li><a id="a" href="acueil.php#emploi"> Emploi du temp</a></li>
+                <li><a id="a" href="acueil.php#lien"> Liens de cours</a></li>
+                <li><a id="a" href="sandage.php"> sondage</a></li>
                 <li><label for="check"><span id="chat"> chat </span></label></li>
                 
             </ul>
@@ -131,12 +131,6 @@
 
 
     </div>
-
-
-
-
-
-
 
 
     <script src="javascript/users1.js"></script>

@@ -84,12 +84,22 @@ body{
 .form form .image input{
   font-size: 17px;
 }
-.form form .button input{
+.form form .button input {
   height: 45px;
   border: none;
   color: #fff;
   font-size: 17px;
   background: blueviolet;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 13px;
+}
+.form form .resend input {
+  height: 45px;
+  border: none;
+  color: #fff;
+  font-size: 17px;
+  background: rgb(43, 119, 226);
   border-radius: 5px;
   cursor: pointer;
   margin-top: 13px;

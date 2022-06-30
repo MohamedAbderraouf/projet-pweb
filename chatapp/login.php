@@ -1,10 +1,19 @@
+<?php
+session_start();
+
+if(isset($_SESSION['unique_id']))
+ {
+   header("location: users.php");
+ }
+?>
+
 <?php 
  include_once "header_login_index.php";
 ?>
 <body>
-    <div class="wrapper">
+<div class="wrapper">
    <section class="form login">
-       <header> <span id="span1">Section-Chat</span></header>
+       <header> <span id="span1">Section Acad C</span></header>
      <form action="#">
          <div class="error-text"></div>
  
@@ -26,6 +35,7 @@
   
       </form>
       <div class="link">Not yet signed up? <a href="index.php">Singup now</a></div>
+      <div class="link">confirm your email ? <a href="php/confirmationEmail.php">here</a></div>
      </section>
     
     </div>

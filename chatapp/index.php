@@ -1,5 +1,6 @@
 <?php
- session_start();
+session_start();
+
  if(isset($_SESSION['unique_id']))
  {
    header("location: users.php");
@@ -10,6 +11,9 @@
  include_once "header_login_index.php";
 ?>
 <body>
+
+
+
   <div class="wrapper">
     <section class="form signup">
       <header><div>Section-Chat</div></header>
@@ -18,25 +22,30 @@
         <div class="name-details">
           <div class="field input">
             <label>First Name</label>
-            <input type="text" name="fname" placeholder="First name" required>
+            <input type="text" name="fname" placeholder="First name" required/>
           </div>
           <div class="field input">
             <label>Last Name</label>
-            <input type="text" name="lname" placeholder="Last name" required>
+            <input type="text" name="lname" placeholder="Last name" required/>
           </div>
         </div>
         <div class="field input">
           <label>Email Address</label>
-          <input type="text" name="email" placeholder="Enter your email" required>
+          <input type="email" name="email" placeholder="Enter your email" required/>
+        </div>
+        
+        <div class="field input">
+          <label>Matricule</label>
+          <input type="text" name="mat" placeholder="Enter your matricule" required/>
         </div>
         <div class="field input">
           <label>Password</label>
-          <input type="password" name="password" placeholder="Enter new password" required>
+          <input type="password" name="password" placeholder="Enter new password" required/>
           <i class="fas fa-eye"></i>
         </div>
         <div class="field image">
           <label>Select Image</label>
-          <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg,image/jpg" required>
+          <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg,image/jpg" required/>
         </div>
         
         <div class="field button">
@@ -49,6 +58,5 @@
 
   <script src="javascript/show-password.js"></script>
   <script src="javascript/signup.js"></script>
-
 </body>
 </html>

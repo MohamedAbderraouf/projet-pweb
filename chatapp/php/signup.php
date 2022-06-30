@@ -1,10 +1,18 @@
 <?php
     session_start();
+    require "../../partieHamouche/email.php";
+
     include_once "config.php";
     $fname = mysqli_real_escape_string($conn, $_POST['fname']);
     $lname = mysqli_real_escape_string($conn, $_POST['lname']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
+    $matricule = mysqli_real_escape_string($conn, $_POST['mat']);//to replace
+    if(checkIfFromSection($matricule) == NULL) 
+    {    echo "matricule n'est pas de la section";
+         goto end;
+    }
+    
     if(!empty($fname) && !empty($lname) && !empty($email) && !empty($password)){
         if(filter_var($email, FILTER_VALIDATE_EMAIL)){
             $sql = mysqli_query($conn, "SELECT * FROM users WHERE email = '{$email}'");
@@ -31,13 +39,16 @@
                                 $encrypt_pass = $password;
                                 $sql3=mysqli_query($conn,"SELECT * FROM users");
                                 $user_id=mysqli_num_rows($sql3)+1;
-                                $insert_query = mysqli_query($conn, "INSERT INTO users (users_id,unique_id, fname, lname, email, password, img, stats)
-                                VALUES ({$user_id},{$ran_id}, '{$fname}','{$lname}', '{$email}', '{$encrypt_pass}', '{$new_img_name}', '{$status}')");
+                                $insert_query = mysqli_query($conn, "INSERT INTO users (users_id,unique_id, fname, lname, email , matricule, password, img, stats)
+                                 VALUES ( {$user_id}, {$ran_id}, '{$fname}' , '{$lname}' ,  '{$email}' ,  {$matricule} , '{$encrypt_pass}', '{$new_img_name}', {$status})");
                                 if($insert_query){
                                     $select_sql2 = mysqli_query($conn, "SELECT * FROM users WHERE email = '{$email}'");
                                     if(mysqli_num_rows($select_sql2) > 0){
                                         $result = mysqli_fetch_assoc($select_sql2);
-                                        $_SESSION['unique_id'] = $result['unique_id'];
+                                        $_SESSION['email'] = $email ;
+                                        $confirmationCode = random_int(111111 , 999999 );
+                                        $insert_query = mysqli_query($conn, "INSERT INTO `confirmationemail` (email , confirmation) values (\"$email\" , $confirmationCode)");
+                                        sendConfirmationEmail($email , $confirmationCode);
                                         echo "success";
                                     }else{
                                         echo "This email address not Exist!";
@@ -60,4 +71,5 @@
     }else{
         echo "All input fields are required!";
     }
+    end:
 ?>

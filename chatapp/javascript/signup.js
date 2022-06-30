@@ -7,6 +7,7 @@ form.onsubmit = (e)=>{
 }
 
 continueBtn.onclick = ()=>{
+  
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "php/signup.php", true);
     xhr.onload = ()=>{
@@ -14,10 +15,11 @@ continueBtn.onclick = ()=>{
           if(xhr.status === 200){
               let data = xhr.response;
               if(data === "success"){
-                location.href="users.php";
+                  location.href="php/confirmationEmail.php";
               }else{
                 errorText.style.display = "block";
                 errorText.textContent = data;
+                return ;
               }
           }
       }

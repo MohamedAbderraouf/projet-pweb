@@ -4,6 +4,14 @@
   $email = mysqli_real_escape_string($conn, $_POST['email']);
   $password = mysqli_real_escape_string($conn, $_POST['password']);
 
+  $select_sql2 = mysqli_query($conn, "SELECT * FROM confirmationemail WHERE email = '$email';");
+
+  if(mysqli_num_rows($select_sql2) > 0){
+  
+      echo "vous n'avez pas confirmer votre email";
+  
+  }
+
 if(!empty($email) && !empty($password))
 { 
   $sql=mysqli_query($conn ,"SELECT * from users where email ='{$email}' AND password='{$password}' ");
